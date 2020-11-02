@@ -117,7 +117,7 @@ try {
                 
                 $ous = $ADusersReportOU | ConvertFrom-Json
                 $result = foreach($item in $ous) {
-                    (Get-ADUser -Filter $filter -SearchBase $item.ou -Properties $properties) | Where-Object {$_.LockedOut -eq $true}
+                    (Get-ADUser -Filter $filter -SearchBase $item.ou -Properties $properties)
                 } 
             
                 $resultCount = @($result).Count
